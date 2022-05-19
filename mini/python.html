@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>安装conda虚拟环境 | Da的博客</title>
+    <meta name="description" content="Da的博客.">
+    <link rel="stylesheet" href="/amux9527/assets/style.c62ae67b.css">
+    <link rel="modulepreload" href="/amux9527/assets/app.18d1f9be.js">
+    <link rel="modulepreload" href="/amux9527/assets/mini_python.md.be7231b1.lean.js">
+    
+    <link rel="icon" href="/img/logo.png">
+  <meta name="twitter:title" content="安装conda虚拟环境 | Da的博客">
+  <meta property="og:title" content="安装conda虚拟环境 | Da的博客">
+  </head>
+  <body>
+    <div id="app"><!--[--><div class="theme"><header class="nav-bar" data-v-2ba227d5><div class="sidebar-button" data-v-2ba227d5><svg class="icon" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z" class></path></svg></div><a class="nav-bar-title" href="/amux9527/" aria-label="Da的博客, back to home" data-v-2ba227d5 data-v-b3da5816><!----> Da的博客</a><div class="flex-grow" data-v-2ba227d5></div><div class="nav" data-v-2ba227d5><nav class="nav-links" data-v-2ba227d5 data-v-0fce24fe><!--[--><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item" href="/amux9527/" data-v-2cb643ba>首页 <!----></a></div></div><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item" href="/amux9527/about/" data-v-2cb643ba>关于 <!----></a></div></div><!--]--><!----><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item isExternal" href="https://github.com/amux9527/amux9527" target="_blank" rel="noopener noreferrer" data-v-2cb643ba>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-2cb643ba><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav></div><!--[--><!--]--></header><aside class="sidebar" data-v-79af364c><nav class="nav-links nav" data-v-79af364c data-v-0fce24fe><!--[--><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item" href="/amux9527/" data-v-2cb643ba>首页 <!----></a></div></div><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item" href="/amux9527/about/" data-v-2cb643ba>关于 <!----></a></div></div><!--]--><!----><div class="item" data-v-0fce24fe><div class="nav-link" data-v-0fce24fe data-v-2cb643ba><a class="item isExternal" href="https://github.com/amux9527/amux9527" target="_blank" rel="noopener noreferrer" data-v-2cb643ba>GitHub <svg class="icon outbound" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" x="0px" y="0px" viewbox="0 0 100 100" width="15" height="15" data-v-2cb643ba><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path><polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg></a></div></div></nav><!--[--><!--]--><ul class="sidebar-links" data-v-79af364c><!--[--><li class="sidebar-link"><a class="sidebar-link-item active" href="/amux9527/mini/python">Python</a><ul class="sidebar-links"><li class="sidebar-link"><a class="sidebar-link-item" href="#安装conda虚拟环境">安装conda虚拟环境</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#虚拟环境换源">虚拟环境换源</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#conda常用命令">conda常用命令</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#pip下载时指定源">pip下载时指定源</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#python-入门-之-hello-world">python 入门 之 hello world</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#注意缩进">注意缩进</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#注释">注释</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#变量">变量</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#运算符">运算符</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#条件语句">条件语句</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#循环语句">循环语句</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#列表">列表</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#元组">元组</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#字典">字典</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#日期和时间">日期和时间</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#函数">函数</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#匿名函数-lambda">匿名函数(lambda)</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#模块和包">模块和包</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#python中的一些自带的标准库">python中的一些自带的标准库</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#读取键盘输入">读取键盘输入</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#打开和关闭文件">打开和关闭文件</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#装饰器">装饰器</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#异常处理">异常处理</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#类的继承">类的继承</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#特殊方法-魔术方法">特殊方法(魔术方法)</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#python异步编程">Python异步编程</a><!----></li><li class="sidebar-link"><a class="sidebar-link-item" href="#打包py文件为exe">打包py文件为exe</a><!----></li></ul></li><li class="sidebar-link"><a class="sidebar-link-item" href="/amux9527/mini/java">Java</a><!----></li><!--]--></ul><!--[--><!--]--></aside><div class="sidebar-mask"></div><main class="page" data-v-30e7de44><div class="container" data-v-30e7de44><!--[--><!--]--><div style="position:relative;" class="content" data-v-30e7de44><div><h2 id="安装conda虚拟环境" tabindex="-1">安装conda虚拟环境 <a class="header-anchor" href="#安装conda虚拟环境" aria-hidden="true">#</a></h2><p>下载<a href="https://docs.conda.io/en/latest/miniconda.html#" target="_blank" rel="noopener noreferrer">Miniconda</a></p><p>如果没有勾选配置到环境变量需要自己手动配置</p><p>windows10在<strong>高级系统设置</strong> -&gt; <strong>环境变量</strong> -&gt; <strong>Path</strong>中添加<strong>Miniconda安装的路径下的Script</strong>目录</p><p>打开powershell输入</p><div class="language-sh"><pre><code>conda -V
+</code></pre></div><p>输出版本号说明已经安装成功</p><h2 id="虚拟环境换源" tabindex="-1">虚拟环境换源 <a class="header-anchor" href="#虚拟环境换源" aria-hidden="true">#</a></h2><p>windows可能需要先初始化一下conda环境,输入</p><p><strong>如果你windows的用户名是中文conda环境应该会初始化失败, 在乱码目录找到profile.ps1文件,移动到 文档/WindowsPowerShell 目录下</strong></p><div class="language-sh"><pre><code>conda init
+</code></pre></div><p>换源</p><div class="language-sh"><pre><code>conda config --add channels https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+
+conda config --set show_channel_urls yes
+</code></pre></div><p>powershell如果不允许执行就输入</p><div class="language-sh"><pre><code>get-ExecutionPolicy   # 查看系统执行策略状态
+ 
+set-executionpolicy remotesigned # 修改执行策略状态
+</code></pre></div><p>创建新的虚拟环境</p><div class="language-sh"><pre><code>conda create -n env python=3.9
+</code></pre></div><p>如果不行或者很慢,可能是换源没有成功,windows10找到当前用户目录下的.condarc文件,修改如下(注意缩进格式)</p><div class="language-yml"><pre><code><span class="token key atrule">ssl_verify</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">show_channel_urls</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+
+<span class="token key atrule">channels</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> http<span class="token punctuation">:</span>//mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/win<span class="token punctuation">-</span>64/
+  <span class="token punctuation">-</span> http<span class="token punctuation">:</span>//mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/win<span class="token punctuation">-</span>64/
+</code></pre></div><h2 id="conda常用命令" tabindex="-1">conda常用命令 <a class="header-anchor" href="#conda常用命令" aria-hidden="true">#</a></h2><div class="language-sh"><pre><code>conda list  # 查看安装了哪些包
+conda env list 或者 conda info -e  # 查看当前存在哪些虚拟环境
+conda create -n 虚拟环境名字 python=python版本号 # 创建虚拟环境
+activate 虚拟环境名字 # 激活你的虚拟环境(Windows)
+conda install -n 虚拟环境名字 [包名字] # 安装包到指定的虚拟环境
+# 关闭虚拟环境(即从当前环境退出返回使用PATH环境中的默认python版本)
+deactivate # Windows
+# 删除环境中的某个包
+conda remove --name 虚拟环境名字 包名字
+# 删除环境
+conda remove -n 虚拟环境名字 --all
+</code></pre></div><h2 id="pip下载时指定源" tabindex="-1">pip下载时指定源 <a class="header-anchor" href="#pip下载时指定源" aria-hidden="true">#</a></h2><div class="language-sh"><pre><code>pip install 包名字 -i https://pypi.tuna.tsinghua.edu.cn/simple
+</code></pre></div><h2 id="python-入门-之-hello-world" tabindex="-1">python 入门 之 hello world <a class="header-anchor" href="#python-入门-之-hello-world" aria-hidden="true">#</a></h2><p>保证你按之前的步骤安装好了conda虚拟环境</p><p>我们创建一个工作目录(work),存放我们的源代码</p><p>在work目录下创建hello.py文件 <strong>.py</strong> 结尾的文件就是python脚本文件</p><p>我们在hello.py文件中写入</p><div class="language-python"><pre><code><span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;hello world&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><p>保存后,我们在work目录下打开命令行,切换到我们刚才创建的env环境下</p><div class="language-sh"><pre><code>conda activate env
+</code></pre></div><p>然后用python解释器执行我们编写的hello.py文件</p><div class="language-sh"><pre><code>python hello.py
+</code></pre></div><p>我们可以看到控制台输出了 hello world</p><h2 id="注意缩进" tabindex="-1">注意缩进 <a class="header-anchor" href="#注意缩进" aria-hidden="true">#</a></h2><p><strong>python的代码对缩进非常的严格,编写代码时需要注意缩进</strong></p><h2 id="注释" tabindex="-1">注释 <a class="header-anchor" href="#注释" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 这是单行注释,用一个#放注释内容的前面</span>
+
+<span class="token triple-quoted-string string">&#39;&#39;&#39;
+这是多行注释,用三个单引号放要注释的内容的前面和后面
+&#39;&#39;&#39;</span>
+</code></pre></div><h2 id="变量" tabindex="-1">变量 <a class="header-anchor" href="#变量" aria-hidden="true">#</a></h2><p>python是弱类型语言,它不需要声明变量的类型,如果之前是写强类型语言的开始可能会有点不习惯</p><div class="language-python"><pre><code>a <span class="token operator">=</span> <span class="token number">1</span> <span class="token comment"># 整型变量</span>
+b <span class="token operator">=</span> <span class="token number">2.0</span> <span class="token comment"># 浮点型变量</span>
+c <span class="token operator">=</span> <span class="token string">&quot;hello&quot;</span> <span class="token comment"># 字符串变量</span>
+d <span class="token operator">=</span> <span class="token boolean">True</span> <span class="token comment"># 布尔型变量</span>
+e <span class="token operator">=</span> <span class="token boolean">False</span> <span class="token comment"># 布尔型变量</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>b<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>d<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+</code></pre></div><h2 id="运算符" tabindex="-1">运算符 <a class="header-anchor" href="#运算符" aria-hidden="true">#</a></h2><div class="language-python"><pre><code>a <span class="token operator">=</span> <span class="token number">1</span>
+b <span class="token operator">=</span> <span class="token number">2</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">+</span> b<span class="token punctuation">)</span> <span class="token comment"># 加</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">-</span> b<span class="token punctuation">)</span> <span class="token comment"># 减</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">*</span> b<span class="token punctuation">)</span> <span class="token comment"># 乘</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">/</span> b<span class="token punctuation">)</span> <span class="token comment"># 除</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">%</span> b<span class="token punctuation">)</span> <span class="token comment"># 取模</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>a <span class="token operator">**</span> b<span class="token punctuation">)</span> <span class="token comment"># a的b次方</span>
+</code></pre></div><h2 id="条件语句" tabindex="-1">条件语句 <a class="header-anchor" href="#条件语句" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token triple-quoted-string string">&#39;&#39;&#39;
+注意缩进
+if 判断条件:
+    执行语句...
+elif 判断条件2:
+  执行语句2...
+else:
+    执行语句...
+&#39;&#39;&#39;</span>
+
+a <span class="token operator">=</span> <span class="token number">2</span>
+b <span class="token operator">=</span> <span class="token number">3</span>
+
+<span class="token keyword">if</span> a <span class="token operator">&gt;</span> b<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;a &gt; b&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">elif</span> a <span class="token operator">==</span> b<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;a == b&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;a &lt; b&quot;</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="循环语句" tabindex="-1">循环语句 <a class="header-anchor" href="#循环语句" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token triple-quoted-string string">&#39;&#39;&#39;
+while 判断条件(条件):
+    执行语句(语句)...
+&#39;&#39;&#39;</span>
+count <span class="token operator">=</span> <span class="token number">0</span>
+<span class="token keyword">while</span> <span class="token punctuation">(</span>count <span class="token operator">&lt;</span> <span class="token number">9</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;count的值为:&#39;</span><span class="token punctuation">,</span> count<span class="token punctuation">)</span>
+   count <span class="token operator">=</span> count <span class="token operator">+</span> <span class="token number">1</span>
+
+<span class="token triple-quoted-string string">&#39;&#39;&#39;
+for 这里用个变量接收每次循环的值 in 这里可以是一个列表,字典,元组等:
+   执行语句...
+&#39;&#39;&#39;</span>
+
+<span class="token comment"># 遍历字符串</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token string">&#39;Python&#39;</span><span class="token punctuation">:</span>    
+   <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;当前字母: %s&quot;</span> <span class="token operator">%</span> i<span class="token punctuation">)</span>
+
+<span class="token comment"># 遍历列表</span>
+fruits <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&#39;banana&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;apple&#39;</span><span class="token punctuation">,</span>  <span class="token string">&#39;mango&#39;</span><span class="token punctuation">]</span>
+<span class="token keyword">for</span> fruit <span class="token keyword">in</span> fruits<span class="token punctuation">:</span>        
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">&#39;当前水果: %s&#39;</span><span class="token operator">%</span> fruit<span class="token punctuation">)</span>
+
+<span class="token comment"># 序列索引迭代遍历列表</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>fruits<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">print</span> <span class="token punctuation">(</span><span class="token string">&#39;当前水果 : %s&#39;</span> <span class="token operator">%</span> fruits<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 嵌套for循环</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">for</span> j <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">,</span>j<span class="token punctuation">)</span>
+
+<span class="token comment"># break跳出循环</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token keyword">break</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;当前的i的值为&#39;</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+
+<span class="token comment"># continue跳出本次循环</span>
+<span class="token keyword">for</span> i <span class="token keyword">in</span> <span class="token builtin">range</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">if</span> i <span class="token operator">==</span> <span class="token number">2</span><span class="token punctuation">:</span>
+    <span class="token keyword">continue</span>
+  <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;当前的i的值为&#39;</span><span class="token punctuation">,</span>i<span class="token punctuation">)</span>
+</code></pre></div><h2 id="列表" tabindex="-1">列表 <a class="header-anchor" href="#列表" aria-hidden="true">#</a></h2><div class="language-python"><pre><code>list1 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;b&#39;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">]</span>
+list2 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token punctuation">]</span>
+list3 <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;c&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;d&quot;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 通过索引访问列表中的值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token comment"># 可以使用方括号的形式截取字符</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">4</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 添加元素到列表中</span>
+list1<span class="token punctuation">.</span>append<span class="token punctuation">(</span><span class="token string">&#39;c&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span>
+
+<span class="token comment"># 删除列表中的元素</span>
+list1<span class="token punctuation">.</span>remove<span class="token punctuation">(</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">del</span> list1<span class="token punctuation">[</span><span class="token number">2</span><span class="token punctuation">]</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>list1<span class="token punctuation">)</span>
+</code></pre></div><h2 id="元组" tabindex="-1">元组 <a class="header-anchor" href="#元组" aria-hidden="true">#</a></h2><div class="language-python"><pre><code>tup1 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span>
+tup2 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;b&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;c&#39;</span><span class="token punctuation">,</span> <span class="token string">&#39;d&#39;</span><span class="token punctuation">)</span>
+tup3 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">,</span> <span class="token number">4</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">)</span> 
+<span class="token comment"># 元组中只包含一个元素时，需要在元素后面添加逗号</span>
+tup4 <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tup1<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>tup2<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">:</span><span class="token number">3</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 元组中的元素值是不允许修改的，但我们可以对元组进行连接组合</span>
+tup5 <span class="token operator">=</span> tup1 <span class="token operator">+</span> tup2
+<span class="token keyword">print</span><span class="token punctuation">(</span>tup5<span class="token punctuation">)</span>
+
+<span class="token comment"># 元组中的元素值是不允许删除的，但我们可以使用del语句来删除整个元组</span>
+<span class="token keyword">del</span> tup2
+<span class="token keyword">print</span><span class="token punctuation">(</span>tup2<span class="token punctuation">)</span>
+</code></pre></div><h2 id="字典" tabindex="-1">字典 <a class="header-anchor" href="#字典" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 字典的每个键值 key:value 对用冒号 : 分割，每个键值对之间用逗号 , 分割，整个字典包括在花括号 {} 中</span>
+dict1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token string">&#39;b&#39;</span><span class="token punctuation">:</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token string">&#39;b&#39;</span><span class="token punctuation">:</span> <span class="token string">&#39;3&#39;</span><span class="token punctuation">}</span>
+
+<span class="token comment"># 通过key拿值</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">[</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 修改对应key的值</span>
+dict1<span class="token punctuation">[</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&#39;c&#39;</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>dict1<span class="token punctuation">[</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除对应的key</span>
+<span class="token keyword">del</span> dict1<span class="token punctuation">[</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">]</span>
+
+<span class="token comment"># 清空字典所有条目</span>
+dict1<span class="token punctuation">.</span>clear<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除字典</span>
+<span class="token keyword">del</span> dict1
+</code></pre></div><h2 id="日期和时间" tabindex="-1">日期和时间 <a class="header-anchor" href="#日期和时间" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 引入time模块</span>
+<span class="token keyword">import</span> time
+
+ticks <span class="token operator">=</span> time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;当前时间戳为:&quot;</span><span class="token punctuation">,</span> ticks<span class="token punctuation">)</span>
+
+<span class="token comment"># 获取当前时间</span>
+l1 <span class="token operator">=</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;本地时间为 :&quot;</span><span class="token punctuation">,</span> l1<span class="token punctuation">)</span>
+
+<span class="token comment"># 获取格式化的时间</span>
+l2 <span class="token operator">=</span> time<span class="token punctuation">.</span>asctime<span class="token punctuation">(</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>time<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;本地时间为 :&quot;</span><span class="token punctuation">,</span> l2<span class="token punctuation">)</span>
+
+<span class="token comment"># 格式化日期</span>
+
+<span class="token comment"># 格式化成年-月-日 时:分:秒形式</span>
+<span class="token keyword">print</span> time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">&quot;%Y-%m-%d %H:%M:%S&quot;</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+
+<span class="token comment"># 格式化成Sat Mar 28 22:24:24 2016形式</span>
+<span class="token keyword">print</span> time<span class="token punctuation">.</span>strftime<span class="token punctuation">(</span><span class="token string">&quot;%a %b %d %H:%M:%S %Y&quot;</span><span class="token punctuation">,</span> time<span class="token punctuation">.</span>localtime<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> 
+  
+<span class="token comment"># 将格式字符串转换为时间戳</span>
+a <span class="token operator">=</span> <span class="token string">&quot;Sat Mar 28 22:24:24 2016&quot;</span>
+<span class="token keyword">print</span> time<span class="token punctuation">.</span>mktime<span class="token punctuation">(</span>time<span class="token punctuation">.</span>strptime<span class="token punctuation">(</span>a<span class="token punctuation">,</span><span class="token string">&quot;%a %b %d %H:%M:%S %Y&quot;</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 获取某月日历</span>
+<span class="token keyword">import</span> calendar <span class="token comment"># 导包放文件头会好一点</span>
+cal <span class="token operator">=</span> calendar<span class="token punctuation">.</span>month<span class="token punctuation">(</span><span class="token number">2016</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;输出2016年1月份的日历:&#39;</span><span class="token punctuation">,</span>cal<span class="token punctuation">)</span>
+</code></pre></div><h2 id="函数" tabindex="-1">函数 <a class="header-anchor" href="#函数" aria-hidden="true">#</a></h2><ul><li>函数代码块以 def 关键词开头，后接函数标识符名称和圆括号()</li><li>任何传入参数和自变量必须放在圆括号中间。圆括号之间可以用于定义参数。</li><li>函数内容以冒号起始，并且缩进</li><li>return [表达式] 结束函数，选择性地返回一个值给调用方。不带表达式的return相当于返回 None</li></ul><div class="language-python"><pre><code><span class="token comment"># 定义函数</span>
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+   <span class="token keyword">return</span> a <span class="token operator">+</span> b
+
+<span class="token comment"># 函数调用</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 定义不定长参数函数</span>
+<span class="token keyword">def</span> <span class="token function">get</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">)</span><span class="token punctuation">:</span>
+  <span class="token keyword">for</span> i <span class="token keyword">in</span> args<span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+
+<span class="token comment"># 调用不定长参数函数</span>
+get<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token string">&#39;a&#39;</span><span class="token punctuation">,</span><span class="token string">&#39;c&#39;</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="匿名函数-lambda" tabindex="-1">匿名函数(lambda) <a class="header-anchor" href="#匿名函数-lambda" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 定义匿名函数</span>
+add <span class="token operator">=</span> <span class="token keyword">lambda</span> x<span class="token punctuation">,</span> y<span class="token punctuation">:</span> x <span class="token operator">+</span> y
+<span class="token comment"># 调用</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="模块和包" tabindex="-1">模块和包 <a class="header-anchor" href="#模块和包" aria-hidden="true">#</a></h2><p>创建一个模块 test_module.py</p><div class="language-python"><pre><code>a <span class="token operator">=</span> <span class="token number">10</span>
+
+<span class="token comment"># 添加了_的变量,只能在模块内部访问,不会被from test_module import *引入</span>
+_b <span class="token operator">=</span> <span class="token number">20</span>
+
+<span class="token comment"># 返回2个数的和</span>
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a <span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">return</span> a <span class="token operator">+</span> b
+
+<span class="token comment"># 编写的测试代码,只有当前文件是主模块才调用,相当于java的main方法</span>
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&#39;__main__&#39;</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span>a<span class="token punctuation">,</span>_b<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p>创建另一个python文件 <a href="http://main.py" target="_blank" rel="noopener noreferrer">main.py</a> 引入上面我们定义好的模块</p><div class="language-python"><pre><code><span class="token comment"># 引入模块,我们可以引入一个模块多次,但是模块的实例只会创建一个</span>
+<span class="token comment"># 每个模块内部都有一个__name__属性,通过这个属性可以获取到模块的名字</span>
+<span class="token comment"># __name__属性值为__main__的模块是主模块,主模块就是我们直接通过python执行的模块</span>
+<span class="token comment"># 一个程序中只会有一个主模块</span>
+<span class="token comment"># import test_module</span>
+<span class="token comment"># 可以给模块起个别名</span>
+<span class="token keyword">import</span> test_module <span class="token keyword">as</span> test
+<span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>__name__<span class="token punctuation">)</span>
+<span class="token comment"># 访问模块中的变量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>a<span class="token punctuation">)</span>
+<span class="token comment"># 调用模块中的方法</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>test<span class="token punctuation">.</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="python中的一些自带的标准库" tabindex="-1">python中的一些自带的标准库 <a class="header-anchor" href="#python中的一些自带的标准库" aria-hidden="true">#</a></h2><p><strong>sys模块</strong></p><div class="language-python"><pre><code><span class="token keyword">import</span> sys
+
+<span class="token comment"># pprint 模块提供了一个pprint(),该方法可以用来对打印的数据进行简单的格式化</span>
+<span class="token keyword">import</span> pprint
+
+<span class="token comment"># sys.argv获取执行代码时,命令行中所包含的参数(列表)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>argv<span class="token punctuation">)</span>
+<span class="token comment"># sys.modules获取当前程序中引入的所有模块(字典)</span>
+pprint<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>modules<span class="token punctuation">)</span>
+
+<span class="token comment"># sys.path 是一个列表,列表中保存的是模块的搜索路径</span>
+pprint<span class="token punctuation">.</span>pprint<span class="token punctuation">(</span>sys<span class="token punctuation">.</span>path<span class="token punctuation">)</span>
+
+<span class="token comment"># sys.platform获取当前python运行的平台</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>sys<span class="token punctuation">.</span>platform<span class="token punctuation">)</span>
+
+<span class="token comment"># sys.exit()用来退出程序</span>
+sys<span class="token punctuation">.</span>exit<span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="读取键盘输入" tabindex="-1">读取键盘输入 <a class="header-anchor" href="#读取键盘输入" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token builtin">str</span> <span class="token operator">=</span> <span class="token builtin">input</span><span class="token punctuation">(</span><span class="token string">&#39;请输入你的名字:&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;你的名字是&#39;</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="打开和关闭文件" tabindex="-1">打开和关闭文件 <a class="header-anchor" href="#打开和关闭文件" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># r是读 w是写 a是追加,encoding指定文件编码</span>
+f <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&#39;foo.txt&#39;</span><span class="token punctuation">,</span><span class="token string">&#39;w&#39;</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">&#39;utf-8&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 写入内容的文件,w模式会覆盖原来的内容,a是追加模式,不会覆盖原来的内容</span>
+f<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&#39;hello world&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 读取文件内容</span>
+<span class="token builtin">str</span> <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;str&#39;</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 查找当前位置</span>
+pos <span class="token operator">=</span> f<span class="token punctuation">.</span>tell<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&quot;当前文件位置:&quot;</span><span class="token punctuation">,</span>pos<span class="token punctuation">)</span>
+
+<span class="token comment"># 把指针再次重新定位到文件开头</span>
+pos <span class="token operator">=</span> f<span class="token punctuation">.</span>seek<span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">)</span>
+<span class="token builtin">str</span> <span class="token operator">=</span> f<span class="token punctuation">.</span>read<span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;str&#39;</span><span class="token punctuation">,</span><span class="token builtin">str</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;文件名:&#39;</span><span class="token punctuation">,</span>f<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;文件是否关闭:&#39;</span><span class="token punctuation">,</span>f<span class="token punctuation">.</span>closed<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;访问模式:&#39;</span><span class="token punctuation">,</span>f<span class="token punctuation">.</span>mode<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;末尾是否强制加空格:&#39;</span><span class="token punctuation">,</span>f<span class="token punctuation">.</span>softspace<span class="token punctuation">)</span>
+
+<span class="token comment"># 关闭打开的文件</span>
+f<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 使用with open 打开文件,encoding指定文件编码</span>
+<span class="token keyword">with</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&#39;demo.txt&#39;</span><span class="token punctuation">,</span><span class="token string">&#39;w&#39;</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">&#39;utf-8&#39;</span><span class="token punctuation">)</span> <span class="token keyword">as</span> fp<span class="token punctuation">:</span>
+  fp<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&#39;hello world&#39;</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="装饰器" tabindex="-1">装饰器 <a class="header-anchor" href="#装饰器" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 装饰器,用来扩展其他函数,在其他函数执行前后打印语句</span>
+<span class="token comment"># *args, **kwargs表示接收有参或者无参的方法</span>
+<span class="token keyword">def</span> <span class="token function">begin_end</span><span class="token punctuation">(</span>old<span class="token punctuation">)</span><span class="token punctuation">:</span> <span class="token comment"># 传入要被扩展的函数</span>
+	<span class="token comment"># 创建一个新的函数</span>
+	<span class="token keyword">def</span> <span class="token function">cut</span><span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;函数执行前...&#39;</span><span class="token punctuation">)</span>
+		<span class="token comment"># 调用要被扩展的函数</span>
+		result <span class="token operator">=</span> old<span class="token punctuation">(</span><span class="token operator">*</span>args<span class="token punctuation">,</span> <span class="token operator">**</span>kwargs<span class="token punctuation">)</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;函数执行后...&#39;</span><span class="token punctuation">)</span>
+		<span class="token comment"># 返回要被扩展的函数的返回结果</span>
+		<span class="token keyword">return</span> result
+	<span class="token comment"># 返回新函数</span>
+	<span class="token keyword">return</span> cut
+
+<span class="token comment"># 使用装饰器</span>
+<span class="token decorator annotation punctuation">@begin_end</span>
+<span class="token keyword">def</span> <span class="token function">fn</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;fn()...&#39;</span><span class="token punctuation">)</span>
+
+<span class="token decorator annotation punctuation">@begin_end</span>
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;开始计算&#39;</span><span class="token punctuation">)</span>
+	r <span class="token operator">=</span> a <span class="token operator">+</span> b
+	<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;结束计算&#39;</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> r
+
+fn<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>os模块</strong></p><div class="language-python"><pre><code><span class="token comment"># os模块让我们可以对操作系统进行访问</span>
+<span class="token keyword">import</span> os
+
+<span class="token comment"># os.environ获取到系统的环境变量</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>os<span class="token punctuation">.</span>environ<span class="token punctuation">[</span><span class="token string">&#39;path&#39;</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token comment"># os.system()可以用来执行操作系统的命令</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">&#39;dir&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 调用系统音乐播放器</span>
+os<span class="token punctuation">.</span>system<span class="token punctuation">(</span><span class="token string">&#39;hmf.mp3&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 重命名文件test1.txt到test2.txt。</span>
+os<span class="token punctuation">.</span>rename<span class="token punctuation">(</span><span class="token string">&quot;test1.txt&quot;</span><span class="token punctuation">,</span><span class="token string">&quot;test2.txt&quot;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 删除文件</span>
+os<span class="token punctuation">.</span>remove<span class="token punctuation">(</span>file_name<span class="token punctuation">)</span>
+
+<span class="token comment"># 创建新的目录</span>
+os<span class="token punctuation">.</span>mkdir<span class="token punctuation">(</span>dir_name<span class="token punctuation">)</span>
+
+<span class="token comment"># 删除目录</span>
+os<span class="token punctuation">.</span>rmdir<span class="token punctuation">(</span>dir_name<span class="token punctuation">)</span>
+</code></pre></div><h2 id="异常处理" tabindex="-1">异常处理 <a class="header-anchor" href="#异常处理" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token triple-quoted-string string">&#39;&#39;&#39;
+try:
+    正常的操作
+except:
+    发生异常，执行这块代码
+else:
+    如果没有异常执行这块代码
+&#39;&#39;&#39;</span>
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    fh <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&quot;test.txt&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;w&quot;</span><span class="token punctuation">,</span>encoding<span class="token operator">=</span><span class="token string">&#39;utf-8&#39;</span><span class="token punctuation">)</span>
+    fh<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&quot;这是一个测试文件，用于测试异常!!&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> IOError<span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token string">&quot;Error: 没有找到文件或读取文件失败&quot;</span>
+<span class="token keyword">else</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token string">&quot;内容写入文件成功&quot;</span>
+    fh<span class="token punctuation">.</span>close<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token triple-quoted-string string">&#39;&#39;&#39;
+try:
+  语句...
+finally:
+  语句...    #退出try时总会执行
+raise
+&#39;&#39;&#39;</span>
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+    fh <span class="token operator">=</span> <span class="token builtin">open</span><span class="token punctuation">(</span><span class="token string">&quot;testfile&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;w&quot;</span><span class="token punctuation">)</span>
+    fh<span class="token punctuation">.</span>write<span class="token punctuation">(</span><span class="token string">&quot;这是一个测试文件，用于测试异常!!&quot;</span><span class="token punctuation">)</span>
+<span class="token keyword">finally</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span> <span class="token string">&quot;Error: 没有找到文件或读取文件失败&quot;</span>
+</code></pre></div><p><strong>自定义异常类</strong></p><div class="language-python"><pre><code><span class="token keyword">class</span> <span class="token class-name">MyError</span><span class="token punctuation">(</span>Exception<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">pass</span>
+
+<span class="token keyword">def</span> <span class="token function">add</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span>b<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">if</span> a <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token keyword">or</span> b <span class="token operator">&lt;</span> <span class="token number">0</span><span class="token punctuation">:</span>
+		<span class="token comment"># raise用于抛出异常,后面可以跟一个异常类,或者异常类的实例</span>
+		<span class="token comment"># raise Exception</span>
+		<span class="token comment"># raise Exception(&#39;参数不能有负数&#39;)</span>
+		<span class="token keyword">raise</span> MyError<span class="token punctuation">(</span><span class="token string">&#39;自定义的异常类&#39;</span><span class="token punctuation">)</span>
+	<span class="token keyword">return</span> a <span class="token operator">+</span> b
+
+<span class="token keyword">try</span><span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>add<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">except</span> Exception <span class="token keyword">as</span> e<span class="token punctuation">:</span>
+	<span class="token keyword">print</span><span class="token punctuation">(</span>e<span class="token punctuation">)</span>
+</code></pre></div><h2 id="类的继承" tabindex="-1">类的继承 <a class="header-anchor" href="#类的继承" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">:</span>
+	<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		self<span class="token punctuation">.</span>_name <span class="token operator">=</span> name
+
+	<span class="token comment"># get方法的装饰器</span>
+	<span class="token decorator annotation punctuation">@property</span>
+	<span class="token keyword">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> self<span class="token punctuation">.</span>_name
+    <span class="token comment"># set方法的装饰器, @属性名.setter</span>
+	<span class="token decorator annotation punctuation">@name<span class="token punctuation">.</span>setter</span>
+	<span class="token keyword">def</span> <span class="token function">name</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span>name<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		self<span class="token punctuation">.</span>_name <span class="token operator">=</span> name
+
+	<span class="token keyword">def</span> <span class="token function">hi</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;人说话&#39;</span><span class="token punctuation">)</span>
+
+<span class="token comment"># 继承</span>
+<span class="token keyword">class</span> <span class="token class-name">XiaoMing</span><span class="token punctuation">(</span>Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">def</span> <span class="token function">say</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;我是&#39;</span> <span class="token operator">+</span> self<span class="token punctuation">.</span>_name<span class="token punctuation">)</span>
+	<span class="token comment"># 重写方法</span>
+	<span class="token keyword">def</span> <span class="token function">hi</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># super调用父类的方法</span>
+		<span class="token builtin">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>hi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>_name <span class="token operator">+</span> <span class="token string">&#39;说话&#39;</span><span class="token punctuation">)</span>
+<span class="token comment"># 多重继承</span>
+<span class="token keyword">class</span> <span class="token class-name">LiHua</span><span class="token punctuation">(</span>XiaoMing <span class="token punctuation">,</span> Person<span class="token punctuation">)</span><span class="token punctuation">:</span>
+	<span class="token keyword">def</span> <span class="token function">hh</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;hh&#39;</span><span class="token punctuation">)</span>
+		
+
+p <span class="token operator">=</span> XiaoMing<span class="token punctuation">(</span><span class="token string">&#39;小明&#39;</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p<span class="token punctuation">.</span>name<span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>say<span class="token punctuation">(</span><span class="token punctuation">)</span>
+p<span class="token punctuation">.</span>hi<span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token comment"># issubclass用来检查一个类是不是另一个类的子类</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">issubclass</span><span class="token punctuation">(</span>XiaoMing<span class="token punctuation">,</span>Person<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token comment"># 类名.__bases__用来获取当前类的所有父类</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>XiaoMing<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>LiHua<span class="token punctuation">.</span>__bases__<span class="token punctuation">)</span>
+</code></pre></div><h2 id="特殊方法-魔术方法" tabindex="-1">特殊方法(魔术方法) <a class="header-anchor" href="#特殊方法-魔术方法" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token comment"># 特殊方法也叫魔术方法</span>
+<span class="token comment"># 特殊方法都是使用__开头和结尾的</span>
+<span class="token comment"># 特殊方法一般不需要我们手动调用,需要在一些特殊情况下自动执行</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Person</span><span class="token punctuation">(</span><span class="token builtin">object</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+
+	<span class="token comment"># 这里相当于java的构造方法</span>
+	<span class="token keyword">def</span> <span class="token function">__init__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> name<span class="token punctuation">,</span> age<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		self<span class="token punctuation">.</span>name <span class="token operator">=</span> name
+		self<span class="token punctuation">.</span>age <span class="token operator">=</span> age
+
+	<span class="token comment">#  __str__这个特殊方法会在尝试将对象转换为字符串的时候调用</span>
+	<span class="token comment"># 这里相当于java的toString方法</span>
+	<span class="token keyword">def</span> <span class="token function">__str__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token comment"># return self.name + &#39; &#39; + str(self.age)</span>
+		<span class="token keyword">return</span> <span class="token string">&#39;Person [name = %s, age = %d]&#39;</span><span class="token operator">%</span><span class="token punctuation">(</span>self<span class="token punctuation">.</span>name<span class="token punctuation">,</span> self<span class="token punctuation">.</span>age<span class="token punctuation">)</span>
+
+	<span class="token comment">#  __repr__这个特殊方法会在当前对象使用repr()函数时调用</span>
+	<span class="token comment">#  它的作用是指定对象在 &#39;交互模式&#39; 中直接输出的效果</span>
+	<span class="token keyword">def</span> <span class="token function">__repr__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token string">&#39;Hello&#39;</span>
+
+	<span class="token comment"># 对象比较时调用</span>
+	<span class="token comment"># object.__lt__(self, other) 小于</span>
+	<span class="token comment"># object.__le__(self, other) 小于等于</span>
+	<span class="token comment"># object.__eq__(self, other) 等于</span>
+	<span class="token comment"># object.__ne__(self, other) 不等于</span>
+	<span class="token comment"># object.__gt__(self, other) 大于</span>
+	<span class="token comment"># object.__ge__(self, other) 大于等于</span>
+	<span class="token comment"># 示例,对象做大于比较时调用</span>
+	<span class="token comment"># self表示当前对象,other表示与当前对象比较的对象</span>
+	<span class="token keyword">def</span> <span class="token function">__gt__</span><span class="token punctuation">(</span>self<span class="token punctuation">,</span> other<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> self<span class="token punctuation">.</span>age <span class="token operator">&gt;</span> other<span class="token punctuation">.</span>age
+
+	<span class="token comment"># __len__(self) 获取当前对象长度,调用len(对象)时调用</span>
+	<span class="token keyword">def</span> <span class="token function">__len__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token number">10</span>
+
+	<span class="token comment">#  object.__bool__(self) 获取当前对象的布尔值,调用bool(对象)时调用</span>
+	<span class="token keyword">def</span> <span class="token function">__bool__</span><span class="token punctuation">(</span>self<span class="token punctuation">)</span><span class="token punctuation">:</span>
+		<span class="token keyword">return</span> <span class="token boolean">False</span>
+
+p <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">&#39;孙悟空&#39;</span><span class="token punctuation">,</span> <span class="token number">18</span><span class="token punctuation">)</span>
+p1 <span class="token operator">=</span> Person<span class="token punctuation">(</span><span class="token string">&#39;小白龙&#39;</span><span class="token punctuation">,</span> <span class="token number">19</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span>p <span class="token operator">&gt;</span> p1<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>p1 <span class="token operator">&gt;</span> p<span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">len</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token builtin">bool</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="python异步编程" tabindex="-1">Python异步编程 <a class="header-anchor" href="#python异步编程" aria-hidden="true">#</a></h2><div class="language-python"><pre><code><span class="token keyword">import</span> asyncio
+
+<span class="token comment"># 定义异步函数</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> other<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;模拟爬取网页开始...&#39;</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span> <span class="token comment"># 模拟网络阻塞</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;模拟爬取网页结束...&#39;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">&#39;结果&#39;</span>
+    
+<span class="token keyword">async</span> <span class="token keyword">def</span> fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;执行异步函数...&#39;</span><span class="token punctuation">)</span>
+    <span class="token comment"># 获取结果,等待await代码执行完才会往下执行</span>
+    result <span class="token operator">=</span> <span class="token keyword">await</span> other<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;得到结果 : &#39;</span><span class="token punctuation">,</span>result<span class="token punctuation">)</span>
+    result1 <span class="token operator">=</span> <span class="token keyword">await</span> other<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;得到结果 : &#39;</span><span class="token punctuation">,</span>result1<span class="token punctuation">)</span>
+    
+<span class="token comment"># python3.7之前的写法,创建事件循环</span>
+<span class="token comment"># loop = asyncio.get_event_loop()</span>
+<span class="token comment"># loop.run_until_complete(fun())</span>
+
+<span class="token comment"># python3.7之后的写法</span>
+asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>Task</strong></p><div class="language-python"><pre><code><span class="token keyword">import</span> asyncio
+
+<span class="token comment"># 创建异步函数</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;创建任务...&#39;</span><span class="token punctuation">)</span>
+    <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>sleep<span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;结束任务...&#39;</span><span class="token punctuation">)</span>
+    <span class="token keyword">return</span> <span class="token string">&#39;返回值&#39;</span>
+    
+<span class="token keyword">async</span> <span class="token keyword">def</span> main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;执行main方法...&#39;</span><span class="token punctuation">)</span>
+    <span class="token comment"># 创建Task对象,将当前执行的函数添加到任务循环,不推荐直接这样写</span>
+    <span class="token comment"># task1 = asyncio.create_task(fun())</span>
+    <span class="token comment"># task2 = asyncio.create_task(fun())</span>
+    <span class="token comment"># 建议使用任务列表执行多个任务</span>
+    task_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+        asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> name<span class="token operator">=</span><span class="token string">&#39;任务1&#39;</span><span class="token punctuation">)</span><span class="token punctuation">,</span>  <span class="token comment"># 可以给任务起个名字</span>
+        asyncio<span class="token punctuation">.</span>create_task<span class="token punctuation">(</span>fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+    <span class="token punctuation">]</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;main方法执行完毕...&#39;</span><span class="token punctuation">)</span>
+    <span class="token comment"># 这里遇到耗时操作时会切换到其他的任务</span>
+    <span class="token comment"># re1 = await task1</span>
+    <span class="token comment"># re2 = await task2</span>
+    <span class="token comment"># 等待任务列表里的任务全部完成</span>
+    <span class="token comment"># done(集合,任务的返回结果),pending()  await asyncio.wait(任务列表,超时时间)</span>
+    done<span class="token punctuation">,</span> pending <span class="token operator">=</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>task_list<span class="token punctuation">,</span> timeout<span class="token operator">=</span><span class="token boolean">None</span><span class="token punctuation">)</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span>
+    
+asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;--------------------------&#39;</span><span class="token punctuation">)</span>
+<span class="token comment"># 在方法外创建任务对象,一般不这样写</span>
+task_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    fun<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+    fun<span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">]</span>
+done<span class="token punctuation">,</span> pending <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>task_list<span class="token punctuation">)</span><span class="token punctuation">)</span>
+<span class="token keyword">print</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span>
+</code></pre></div><p><strong>异步与不支持异步的结合案例</strong></p><div class="language-python"><pre><code><span class="token keyword">import</span> asyncio
+<span class="token keyword">from</span> asyncio <span class="token keyword">import</span> tasks
+<span class="token keyword">import</span> requests
+<span class="token keyword">from</span> requests<span class="token punctuation">.</span>api <span class="token keyword">import</span> request
+
+<span class="token keyword">async</span> <span class="token keyword">def</span> getHtml<span class="token punctuation">(</span>url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    loop <span class="token operator">=</span> asyncio<span class="token punctuation">.</span>get_event_loop<span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token comment"># requests模块默认不支持异步,所以要使用线程池来配合实现</span>
+    future <span class="token operator">=</span> loop<span class="token punctuation">.</span>run_in_executor<span class="token punctuation">(</span><span class="token boolean">None</span><span class="token punctuation">,</span> requests<span class="token punctuation">.</span>get<span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+    <span class="token comment"># 等待requests的响应</span>
+    response <span class="token operator">=</span> <span class="token keyword">await</span> future
+    <span class="token keyword">print</span><span class="token punctuation">(</span>response<span class="token punctuation">.</span>text<span class="token punctuation">)</span>
+    
+url_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+    <span class="token string">&#39;http://www.baidu.com&#39;</span><span class="token punctuation">,</span>
+    <span class="token string">&#39;https://www.baidu.com&#39;</span><span class="token punctuation">,</span>
+<span class="token punctuation">]</span>
+
+<span class="token comment"># 创建任务列表</span>
+tasks <span class="token operator">=</span> <span class="token punctuation">[</span>getHtml<span class="token punctuation">(</span>url<span class="token punctuation">)</span> <span class="token keyword">for</span> url <span class="token keyword">in</span> url_list<span class="token punctuation">]</span>
+
+<span class="token comment"># 执行任务列表</span>
+asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><p><strong>python异步爬虫</strong></p><p>安装aiohttp异步网络请求模块</p><div class="language-sh"><pre><code>pip install aiohttp
+</code></pre></div><div class="language-python"><pre><code><span class="token keyword">import</span> asyncio
+<span class="token keyword">import</span> aiohttp
+
+<span class="token comment"># 异步爬取网页</span>
+<span class="token keyword">async</span> <span class="token keyword">def</span> fetch<span class="token punctuation">(</span>session<span class="token punctuation">,</span> url<span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">print</span><span class="token punctuation">(</span><span class="token string">&#39;开始爬取&#39;</span><span class="token punctuation">,</span> url<span class="token punctuation">)</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> session<span class="token punctuation">.</span>get<span class="token punctuation">(</span>url<span class="token punctuation">,</span> verify_ssl<span class="token operator">=</span><span class="token boolean">False</span><span class="token punctuation">)</span> <span class="token keyword">as</span> response<span class="token punctuation">:</span>
+        text <span class="token operator">=</span> <span class="token keyword">await</span> response<span class="token punctuation">.</span>text<span class="token punctuation">(</span><span class="token punctuation">)</span>
+        <span class="token keyword">return</span>
+        
+<span class="token keyword">async</span> <span class="token keyword">def</span> main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">:</span>
+    <span class="token keyword">async</span> <span class="token keyword">with</span> aiohttp<span class="token punctuation">.</span>ClientSession<span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token keyword">as</span> session<span class="token punctuation">:</span>
+        url_list <span class="token operator">=</span> <span class="token punctuation">[</span>
+            <span class="token string">&#39;http://www.baidu.com&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;http://www.baidu.com&#39;</span><span class="token punctuation">,</span>
+            <span class="token string">&#39;http://www.baidu.com&#39;</span>
+        <span class="token punctuation">]</span>
+        tasks <span class="token operator">=</span> <span class="token punctuation">[</span>fetch<span class="token punctuation">(</span>session<span class="token punctuation">,</span> url<span class="token punctuation">)</span> <span class="token keyword">for</span> url <span class="token keyword">in</span> url_list<span class="token punctuation">]</span>
+        done<span class="token punctuation">,</span>pending <span class="token operator">=</span> <span class="token keyword">await</span> asyncio<span class="token punctuation">.</span>wait<span class="token punctuation">(</span>tasks<span class="token punctuation">)</span>
+        <span class="token keyword">print</span><span class="token punctuation">(</span>done<span class="token punctuation">)</span>
+        
+<span class="token keyword">if</span> __name__ <span class="token operator">==</span> <span class="token string">&#39;__main__&#39;</span><span class="token punctuation">:</span>
+    asyncio<span class="token punctuation">.</span>run<span class="token punctuation">(</span>main<span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre></div><h2 id="打包py文件为exe" tabindex="-1">打包py文件为exe <a class="header-anchor" href="#打包py文件为exe" aria-hidden="true">#</a></h2><p><strong>安装pyinstaller</strong></p><div class="language-sh"><pre><code>pip install pyinstaller
+</code></pre></div><div class="language-sh"><pre><code>打包单个exe文件
+-F 选项可以打出一个exe文件，默认是 -D，意思是打成一个文件夹。
+
+pyinstaller -F TestDataGen.py
+
+打出的桌面程序去掉命令行黑框
+-w 选项可以打桌面程序，去掉命令行黑框
+
+pyinstaller -F -w TestDataGen.py
+
+修改程序默认图标
+-i 可以设置图标路径，将图标放在根目录：
+
+pyinstaller -F -w -i gen.ico TestDataGen.py
+</code></pre></div></div></div><footer class="page-footer" data-v-30e7de44 data-v-504b1bfc><div class="edit" data-v-504b1bfc><div class="edit-link" data-v-504b1bfc data-v-40c300d5><!----></div></div><div class="updated" data-v-504b1bfc><!----></div></footer><div class="next-and-prev-link" data-v-30e7de44 data-v-0f10f042><div class="container" data-v-0f10f042><div class="prev" data-v-0f10f042><!----></div><div class="next" data-v-0f10f042><a class="link" href="/amux9527/mini/java" data-v-0f10f042><span class="text" data-v-0f10f042>Java</span><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 24 24" class="icon icon-next" data-v-0f10f042><path d="M19.9,12.4c0.1-0.2,0.1-0.5,0-0.8c-0.1-0.1-0.1-0.2-0.2-0.3l-7-7c-0.4-0.4-1-0.4-1.4,0s-0.4,1,0,1.4l5.3,5.3H5c-0.6,0-1,0.4-1,1s0.4,1,1,1h11.6l-5.3,5.3c-0.4,0.4-0.4,1,0,1.4c0.2,0.2,0.5,0.3,0.7,0.3s0.5-0.1,0.7-0.3l7-7C19.8,12.6,19.9,12.5,19.9,12.4z"></path></svg></a></div></div></div><!--[--><!--]--></div></main></div><!----><!--]--></div>
+    <script>__VP_HASH_MAP__ = JSON.parse("{\"about_index.md\":\"a2989694\",\"index.md\":\"0b81bdfa\",\"mini_java.md\":\"b3ac0f9e\",\"mini_python.md\":\"be7231b1\"}")</script>
+    <script type="module" async src="/amux9527/assets/app.18d1f9be.js"></script>
+    
+  </body>
+</html>
